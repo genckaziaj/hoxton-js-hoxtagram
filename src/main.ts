@@ -20,8 +20,6 @@ let state: State = {
   images: [],
 };
 
-// Q: What images do I have? state.images
-
 function getImagesFromServer() {
   fetch("http://localhost:3333/images")
     .then((resp) => resp.json())
@@ -69,13 +67,10 @@ function render() {
     likeBtn.className = "like-button";
     likeBtn.textContent = "♥";
     likeBtn.addEventListener("click", function () {
-      // updating state
       image.likes++;
 
-      // updating the server
       updateImage(image);
 
-      // updating the page
       render();
     });
 
